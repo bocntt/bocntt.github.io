@@ -23,7 +23,7 @@ socket.on('DANH_SACH_ONLINE', arrUserInfo => {
 socket.on('DANG_KY_THAT_BAI', () => {alert('Vui long chon username khac')});
 
 function openStream() {
-	const config = {audio: false, video: true};
+	const config = {audio: true, video: true};
 	return navigator.mediaDevices.getUserMedia(config);
 }
 
@@ -33,10 +33,7 @@ function playStream(idVideotag, stream) {
 	video.play();
 }
 
-// openStream()
-// .then(stream => playStream('localStream', stream));
-
-const peer = new Peer({host: 'stream2001.herokuapp.com', secure:true});
+const peer = new Peer();
 
 peer.on('open', id => {
 	$('#my-peer').append(id);
