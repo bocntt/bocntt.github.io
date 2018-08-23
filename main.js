@@ -2,24 +2,6 @@ const socket = io('https://stream2001.herokuapp.com/');
 
 $('#div-chat').hide();
 
-let customConfig;
-$.ajax({
-	url: "http://service.xirsys.com/ice",
-	data: {
-		ident: "bonguyen95",
-		secret: "fa348a56-a6af-11e8-a81d-83b4f32bd93a",
-		domain: "bocntt.github.io",
-		application: "default",
-		room: "default",
-		secure: 1
-	},
-	success: function(data, status) {
-		customConfig = data.id;
-		console.log(customConfig);
-	},
-	async: false
-});
-
 socket.on('DANH_SACH_ONLINE', arrUserInfo => {
 	$('#div-chat').show();
 	$('#div-dang-ky').hide();
