@@ -51,7 +51,7 @@ function playStream(idVideotag, stream) {
 	video.play();
 }
 
-const peer = new Peer({config: customConfig});
+const peer = new Peer();
 
 peer.on('open', id => {
 	$('#my-peer').append(id);
